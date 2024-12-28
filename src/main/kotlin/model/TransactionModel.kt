@@ -5,7 +5,7 @@ import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
 
 data class TransactionModel(
-    val transactionId: String,
+    val transactionId: String? = null,
     val date: String,
     val type: String,
     val amount: String,

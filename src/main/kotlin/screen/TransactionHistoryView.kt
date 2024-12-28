@@ -35,7 +35,56 @@ class TransactionHistoryScreen : Screen {
                 type = "Withdrawal",
                 amount = "$300",
                 status = "Completed"
-            )
+            ),TransactionModel(
+                transactionId = "",
+                date = "2024-12-22",
+                type = "Withdrawal",
+                amount = "$300",
+                status = "Completed"
+            ),TransactionModel(
+                transactionId = "",
+                date = "2024-12-22",
+                type = "Withdrawal",
+                amount = "$300",
+                status = "Completed"
+            ),TransactionModel(
+                transactionId = "",
+                date = "2024-12-22",
+                type = "Withdrawal",
+                amount = "$300",
+                status = "Completed"
+            ),TransactionModel(
+                transactionId = "",
+                date = "2024-12-22",
+                type = "Withdrawal",
+                amount = "$300",
+                status = "Completed"
+            ),TransactionModel(
+                transactionId = "",
+                date = "2024-12-22",
+                type = "Withdrawal",
+                amount = "$300",
+                status = "Completed"
+            ),TransactionModel(
+                transactionId = "",
+                date = "2024-12-22",
+                type = "Withdrawal",
+                amount = "$300",
+                status = "Completed"
+            ),TransactionModel(
+                transactionId = "",
+                date = "2024-12-22",
+                type = "Withdrawal",
+                amount = "$300",
+                status = "Completed"
+            ),
+            TransactionModel(
+                transactionId = "",
+                date = "2024-12-22",
+                type = "Withdrawal",
+                amount = "$300",
+                status = "Completed"
+            ),
         )
         LazyColumn {
             items(transactions.size) { index ->

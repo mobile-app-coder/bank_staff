@@ -1,6 +1,8 @@
 package viewmodels
 
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import cafe.adriel.voyager.navigator.Navigator
 import kotlinx.coroutines.CoroutineScope
@@ -17,10 +19,13 @@ class LoginScreenViewModel : ViewModel() {
     var user = mutableStateOf("")
     var password = mutableStateOf("")
     var loginStatus = mutableStateOf("")
+    var branch by mutableStateOf("")
 
     fun login(navigator: Navigator) {
         CoroutineScope(Dispatchers.IO).launch {
             try {
+
+
                 val model = LoginModel(user.value, password.value)
                 val params = convertLoginModelToJson(model)
                 println("Serialized login request: $params")

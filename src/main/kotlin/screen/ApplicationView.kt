@@ -13,41 +13,59 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.lifecycle.viewmodel.compose.viewModel
 import cafe.adriel.voyager.core.screen.Screen
 import kotlinx.coroutines.delay
 import model.ApplicationModel
-import viewmodels.ApplicationViewModel
-
 
 // Applications Screen
 class ApplicationsScreen : Screen {
 
-
     @Composable
     override fun Content() {
-
-        val applicationViewModel = viewModel { ApplicationViewModel() }
         Column(modifier = Modifier.fillMaxSize().padding(16.dp)) {
             Text("Applications Overview", fontSize = 24.sp, fontWeight = FontWeight.Bold)
             Spacer(modifier = Modifier.height(20.dp))
-            ApplicationsList(applicationViewModel)
+            ApplicationsList()
         }
     }
 
     @Composable
-    fun ApplicationsList(applicationViewModel: ApplicationViewModel) {
+    fun ApplicationsList() {
+        // Sample data for applications
+        val applicationList = listOf(
+            ApplicationModel(
+                applicationID = "A123",
+                applicationType = "Loan",
+                clientName = "Jane Doe",
+                amount = 5000.0.toString(),
+                status = "Pending"
+            ),
+            ApplicationModel(
+                applicationID = "A124",
+                applicationType = "Deposit",
+                clientName = "John Smith",
+                amount = 2000.0.toString(),
+                status = "Approved"
+            ),
+            ApplicationModel(
+                applicationID = "A125",
+                applicationType = "Loan",
+                clientName = "Alice Johnson",
+                amount = 1500.0.toString(),
+                status = "Rejected"
+            )
+        )
 
         LazyColumn {
-            items(applicationViewModel.applicationList.size) { index ->
-                val application = applicationViewModel.applicationList[index]
+            items(applicationList.size) { index ->
+                val application = applicationList[index]
                 ApplicationItemView(
                     application,
                     onProve = { applicationId ->
-                        applicationViewModel.approve(applicationId)
+                        // Handle approve logic (dummy)
                     },
                     onReject = { applicationId ->
-                        applicationViewModel.reject(applicationId)
+                        // Handle reject logic (dummy)
                     })
             }
         }
@@ -115,7 +133,6 @@ class ApplicationsScreen : Screen {
                         ) {
                             Text("Approve")
                         }
-
 
                         Spacer(Modifier.width(20.dp))
                         OutlinedButton(

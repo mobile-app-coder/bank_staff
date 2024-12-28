@@ -5,7 +5,6 @@ import cafe.adriel.voyager.navigator.Navigator
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import network.Network
-import screen.HomeScreen
 import screen.LoginScreen
 
 
@@ -15,6 +14,6 @@ fun main() = application {
         Network.sendMessage("staff")
     }
     Window(onCloseRequest = ::exitApplication) {
-        Navigator(HomeScreen())
+        Navigator(LoginScreen())
     }
 }
